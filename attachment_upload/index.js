@@ -2,8 +2,8 @@ const axios = require('axios');
 const fs = require("fs");
 
 const LEADTRIBUTOR_URL = 'https://api.leadtributor.cloud';
-const API_KEY = '';
-const LEAD_ID = '';
+const API_KEY = '' || process.env['API_KEY'];
+const LEAD_ID = '' || process.env['LEAD_ID'];
 
 (async function() {
 
@@ -13,7 +13,7 @@ const LEAD_ID = '';
         "contentType": "text/plain"
     }, {
         headers: {
-            Authorization: API_KEY || process.env['API_KEY']
+            Authorization: API_KEY
         }
     }).then(response => response.data);
 
